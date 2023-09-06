@@ -8,6 +8,15 @@ from constants import objective_function, summary
 def bounding_phase(
     min_pt: float, max_pt: float, delta: float = 0.02, is_minimising: bool = False
 ) -> bool:
+    """
+    Working ->
+        1. Find x0 such that f(x0 - delta) >= f(x0) >= f(x0 + delta) or vice versa
+        2. Start with k = 0
+        3. Set x(k - 1) aka xkm1 = x0 and xk = x0. 
+        4. Find x(k + 1) aka xkp1 = xk + 2^k * delta
+        5. If f(xk) <= f(xkp1) then we have found the minima (and vice versa for maxima)
+        6. Else, set xkm1 = xk and xk = xkp1 and go to step 4
+    """
     x0 = -1
     k = 0
 

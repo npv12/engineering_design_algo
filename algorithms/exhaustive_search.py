@@ -4,6 +4,13 @@ from constants import objective_function, summary
 def exhaustive_search(
     min_pt: float, max_pt: float, delta: float = 0.02, is_minimising: bool = False
 ) -> bool:
+    """
+    Working -> 
+        1. Start with x1 = min_pt, x2 = x1 + delta, x3 = x2 + delta
+        2. If f(x1) > f(x2) < f(x3) then we have found the minima (and vice versa for maxima)
+        3. Else, set x1 = x2, x2 = x3, x3 = x2 + delta and go to step 2
+        4. Terminate if x3 > max_pt
+    """
     x1 = min_pt
     x2 = x1 + delta
     x3 = x2 + delta
