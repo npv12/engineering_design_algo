@@ -7,12 +7,14 @@ from tabulate import tabulate
 
 from algorithms.bounding_phase import bounding_phase
 from algorithms.exhaustive_search import exhaustive_search
+from algorithms.interval_halving import interval_halving
 from constants import headers_dict, summary
 
 # All possible algorithms that can be used
 functions_dict = {
     "exhaustive_search": exhaustive_search,
     "bounding_phase": bounding_phase,
+    "interval_halving": interval_halving
 }
 
 assert functions_dict.keys() == headers_dict.keys() # Sanity check
@@ -28,7 +30,7 @@ parser.add_argument(
     "optimisation_type", metavar="func", type=str, help="Algorithm to be used for optimisation", choices=functions_dict.keys()
 )
 parser.add_argument(
-    "--delta", type=float, help="Step size", default=0.02, required=False
+    "--delta", type=float, help="Step size, value of epsilon depending on algo", default=0.02, required=False
 )
 
 args = parser.parse_args()
