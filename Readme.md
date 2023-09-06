@@ -3,6 +3,16 @@
 ## Introduction
 This repo consists of implementation of a few algorithms as they were taught in the course of Optimisation Algorithms. The algorithms are implemented in Python 3.11. The algorithms implemented are:
 
+## Requirements
+* Python 3.11
+* Numpy
+* Tabulate
+
+You can install all dependency using 
+```bash
+pip install -r requirements.txt
+```
+
 ## Uni Modal Functions
 1. Direct Search Method
     * Exhaustive Search
