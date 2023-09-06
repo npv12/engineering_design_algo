@@ -25,7 +25,16 @@ def fibonnacci_seatch(
     k=2,
     L=None,
 ) -> bool:
-    """ """
+    """ 
+    Working ->
+        1. Find the number of iterations required to find the minimum. If not specified, it will be 100.
+        2. Find the length of the interval. This will stay the same throughout the iterations.
+        3. Find the L2 which will be ratio of L times (n-k+1)th fibonacci number to (n+1)th fibonacci number.
+        4. Find the x1 and x2 which will be min_pt + L2 and max_pt - L2 respectively.
+        5. Find the value of the objective function at x1 and x2.
+        6. If the value of the objective function at x1 is less than the value of the objective function at x2, then the new interval will be [min_pt, x2] and if the value of the objective function at x1 is greater than the value of the objective function at x2, then the new interval will be [x1, max_pt].
+        7. Repeat till we reach number of iteration of value of L2 is less than epsilon or greater than delta.
+    """
     if not L:
         L = max_pt - min_pt
     if not iter:
