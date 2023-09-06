@@ -65,4 +65,4 @@ def interval_halving(
         else:
             min_pt = x1
             max_pt = x2
-    return interval_halving(min_pt, max_pt, epsilon, is_minimising, iter_count)
+    return interval_halving(min_pt, max_pt, delta, epsilon, iter, is_minimising, iter_count)
