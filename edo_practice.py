@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 
-import numpy as np
-
 import argparse
+
+import numpy as np
 from tabulate import tabulate
 
-from constants import headers_dict, summary
+from algorithms.bounding_phase import bounding_phase
 from algorithms.exhaustive_search import exhaustive_search
+from constants import headers_dict, summary
 
 # All possible algorithms that can be used
 functions_dict = {
-    "exhaustive_search": exhaustive_search
+    "exhaustive_search": exhaustive_search,
+    "bounding_phase": bounding_phase,
 }
 
 assert functions_dict.keys() == headers_dict.keys() # Sanity check
@@ -33,6 +35,6 @@ args = parser.parse_args()
 functions_dict[args.optimisation_type](args.minpt, args.maxpt, args.delta, is_minimising=True)
 print(
     tabulate(
-        np.array(summary), headers_dict["exhaustive_search"], tablefmt="fancy_grid"
+        np.array(summary), headers_dict[args.optimisation_type], tablefmt="fancy_grid"
     )
 )
