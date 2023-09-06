@@ -6,7 +6,12 @@ from constants import objective_function, summary
 
 
 def bounding_phase(
-    min_pt: float, max_pt: float, delta: float = 0.02, is_minimising: bool = False
+    min_pt: float,
+    max_pt: float,
+    delta: float | None = None,
+    epsilon: float | None = None,
+    iter: int | None = None,
+    is_minimising: bool = False,
 ) -> bool:
     """
     Working ->
@@ -19,6 +24,9 @@ def bounding_phase(
     """
     x0 = -1
     k = 0
+
+    if not delta:
+        raise ValueError("Must provide delta for bounding phase")
 
     tries = 100  # Max tries to initiliase x0
     while tries:

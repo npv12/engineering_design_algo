@@ -30,11 +30,20 @@ parser.add_argument(
     "optimisation_type", metavar="func", type=str, help="Algorithm to be used for optimisation", choices=functions_dict.keys()
 )
 parser.add_argument(
-    "--delta", type=float, help="Step size, value of epsilon depending on algo", default=0.02, required=False
+    "--delta", type=float, help="Step size", default=None, required=False
 )
-
+parser.add_argument(
+    "--epsilon", type=float, help="Value below which to stop", default=None, required=False
+)
+parser.add_argument(
+    "--iter", type=float, help="Number of iteration to perform", default=None, required=False
+)
 args = parser.parse_args()
-functions_dict[args.optimisation_type](args.minpt, args.maxpt, args.delta, is_minimising=True)
+
+if args.delta is None and args.epsilon is None and args.iter is None:
+    raise ValueError("Must provide either delta, epsilon or iter")
+
+functions_dict[args.optimisation_type](args.minpt, args.maxpt, args.delta, args.epsilon, args.iter, is_minimising=True)
 print(
     tabulate(
         np.array(summary), headers_dict[args.optimisation_type], tablefmt="fancy_grid"
