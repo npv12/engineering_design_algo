@@ -6,7 +6,7 @@ import argparse
 from tabulate import tabulate
 
 from constants import headers_dict, summary
-from exhaustive_search import exhaustive_search
+from algorithms.exhaustive_search import exhaustive_search
 
 # All possible algorithms that can be used
 functions_dict = {
