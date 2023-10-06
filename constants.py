@@ -1,6 +1,8 @@
+from math import sin
+
 # Our objective function
 def objective_function(x: float) -> float:
-    return x**2 / 2 + 125 / x
+    return (x - 15)**2 + 100 * sin(x)
 
 
 # Basic var meant for visualisation
