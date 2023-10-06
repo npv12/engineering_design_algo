@@ -4,6 +4,9 @@ from math import sin
 def objective_function(x: float) -> float:
     return (x - 15)**2 + 100 * sin(x)
 
+def himmelblau_function(x: float, y: float) -> float:
+    return (x**2 + y - 11)**2 + (x + y**2 - 7)**2
+
 
 # Basic var meant for visualisation
 summary = []
