@@ -14,6 +14,8 @@ pip install -r requirements.txt
 ```
 
 ## Uni Modal Functions
+
+### Single variable optimisation
 1. Direct Search Method
     * Exhaustive Search
     * Fibonacci Search
@@ -23,6 +25,11 @@ pip install -r requirements.txt
 2. Gradient based methods
     * Newton-Raphson Method
     * Bisection Method
+
+### Multi variable optimisation
+1. Direct Search
+    * Evolutionary Search
+2. Gradient Search
 
 ## Usage
 For entire list of possible arguments, run:
