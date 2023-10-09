@@ -5,13 +5,13 @@ import argparse
 import numpy as np
 from tabulate import tabulate
 
-from algorithms.bisection import bisection
-from algorithms.bounding_phase import bounding_phase
-from algorithms.exhaustive_search import exhaustive_search
-from algorithms.fibonacci_search import fibonnacci_seatch
-from algorithms.golden_section import golden_section
-from algorithms.newton_raphson import newton_raphson
-from algorithms.interval_halving import interval_halving
+from algorithms.single_var.bisection import bisection
+from algorithms.single_var.bounding_phase import bounding_phase
+from algorithms.single_var.exhaustive_search import exhaustive_search
+from algorithms.single_var.fibonacci_search import fibonnacci_seatch
+from algorithms.single_var.golden_section import golden_section
+from algorithms.single_var.newton_raphson import newton_raphson
+from algorithms.single_var.interval_halving import interval_halving
 from constants import headers_dict, summary
 
 # All possible algorithms that can be used

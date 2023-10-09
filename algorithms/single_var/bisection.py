@@ -13,11 +13,11 @@ def bisection(
 ) -> bool:
     """
     Working -> 
-        1. Choose an initial guess for x0
-        2. Compute x0 and f'(x0)
-        3. Calculate x1 = x0 - f'(x0) / f''(x0)
-        4. If |x1 - x0| < epsilon, then x1 is the solution
-        5. Else, set x0 = x1 and go to step 2
+        1. set x = (a + b) / 2 where f'(a) < 0 and f'(b) > 0
+        2. If f'(x) > 0, then set b = x
+        3. If f'(x) < 0, then set a = x
+        4. If f'(x) = 0, then stop
+        5. Repeat steps 1-4 until |f'(x)| < epsilon
     """
     if not epsilon:
         raise ValueError("Must provide epsilon for newton raphson")
