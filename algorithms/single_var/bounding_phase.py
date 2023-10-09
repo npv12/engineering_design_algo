@@ -17,7 +17,7 @@ def bounding_phase(
     Working ->
         1. Find x0 such that f(x0 - delta) >= f(x0) >= f(x0 + delta) or vice versa
         2. Start with k = 0
-        3. Set x(k - 1) aka xkm1 = x0 and xk = x0. 
+        3. Set x(k - 1) aka xkm1 = x0 and xk = x0.
         4. Find x(k + 1) aka xkp1 = xk + 2^k * delta
         5. If f(xk) <= f(xkp1) then we have found the minima (and vice versa for maxima)
         6. Else, set xkm1 = xk and xk = xkp1 and go to step 4
@@ -38,7 +38,6 @@ def bounding_phase(
         f0 = objective_function(x0 - np.abs(delta))
         f1 = objective_function(x0)
         f2 = objective_function(x0 + np.abs(delta))
-        
 
         if f0 >= f1 and f1 >= f2:
             break

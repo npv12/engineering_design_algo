@@ -20,7 +20,8 @@ def interval_halving(
     mean_pt = (min_pt + max_pt) / 2
     L = max_pt - min_pt
 
-    if not iter: iter = 100
+    if not iter:
+        iter = 100
 
     if epsilon and L < epsilon:
         if is_minimising:
@@ -28,7 +29,7 @@ def interval_halving(
         else:
             print("Found maxima")
         return True
-    
+
     if delta and delta > L:
         if is_minimising:
             print("Found minima")
@@ -65,4 +66,6 @@ def interval_halving(
         else:
             min_pt = x1
             max_pt = x2
-    return interval_halving(min_pt, max_pt, delta, epsilon, iter, is_minimising, iter_count)
+    return interval_halving(
+        min_pt, max_pt, delta, epsilon, iter, is_minimising, iter_count
+    )

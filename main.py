@@ -4,6 +4,7 @@ import argparse
 
 import numpy as np
 from tabulate import tabulate
+from algorithms.multi_var.evolutionary_search import evolutionary_search
 
 from algorithms.single_var.bisection import bisection
 from algorithms.single_var.bounding_phase import bounding_phase
@@ -23,6 +24,7 @@ functions_dict = {
     "golden_section_search": golden_section,
     "newton_raphson": newton_raphson,
     "bisection": bisection,
+    "evo_search": evolutionary_search,
 }
 
 assert functions_dict.keys() == headers_dict.keys()  # Sanity check

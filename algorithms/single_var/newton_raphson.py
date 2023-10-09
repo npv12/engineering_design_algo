@@ -3,6 +3,7 @@ import numpy as np
 from constants import objective_function, summary
 from utils import find_double_derivative, find_derivative, find_random_start
 
+
 def newton_raphson(
     min_pt: float,
     max_pt: float,
@@ -12,7 +13,7 @@ def newton_raphson(
     is_minimising: bool = False,
 ) -> bool:
     """
-    Working -> 
+    Working ->
         1. Choose an initial guess for x0
         2. Compute x0 and f'(x0)
         3. Calculate x1 = x0 - f'(x0) / f''(x0)
@@ -21,7 +22,7 @@ def newton_raphson(
     """
     if not epsilon:
         raise ValueError("Must provide epsilon for newton raphson")
-    
+
     x0 = find_random_start(min_pt, max_pt, epsilon)
 
     assert x0 > min_pt and x0 < max_pt, "x0 must be between min_pt and max_pt"
@@ -42,8 +43,10 @@ def newton_raphson(
         elif x1 > max_pt:
             x1 = max_pt
 
-        summary.append([iter_count, x0, f_value, f_derivative, f_double_derivative, x1 - x0])
+        summary.append(
+            [iter_count, x0, f_value, f_derivative, f_double_derivative, x1 - x0]
+        )
         x0 = x1
         iter_count += 1
-    
+
     return True

@@ -4,8 +4,10 @@ import random
 def find_derivative(f, x, h=0.01):
     return (f(x + h) - f(x)) / h
 
+
 def find_double_derivative(f, x, h=0.01):
     return (f(x + h) - 2 * f(x) + f(x - h)) / (h**2)
+
 
 def find_random_start(min_pt, max_pt, epsilon):
     tries = 100  # Max tries to initiliase x0

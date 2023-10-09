@@ -3,6 +3,7 @@ import numpy as np
 from constants import objective_function, summary
 from utils import find_derivative
 
+
 def bisection(
     min_pt: float,
     max_pt: float,
@@ -12,7 +13,7 @@ def bisection(
     is_minimising: bool = False,
 ) -> bool:
     """
-    Working -> 
+    Working ->
         1. set x = (a + b) / 2 where f'(a) < 0 and f'(b) > 0
         2. If f'(x) > 0, then set b = x
         3. If f'(x) < 0, then set a = x
@@ -30,9 +31,22 @@ def bisection(
         fa_derivative = find_derivative(objective_function, min_pt)
         fb_derivative = find_derivative(objective_function, max_pt)
         fx_derivative = find_derivative(objective_function, x)
-        summary.append([iter_count, min_pt, max_pt, x, fa_derivative, fb_derivative, fx_derivative, objective_function(x)])
-        
-        assert fa_derivative < 0 and fb_derivative > 0, "f'(a) must be less than 0 and f'(b) must be greater than 0"
+        summary.append(
+            [
+                iter_count,
+                min_pt,
+                max_pt,
+                x,
+                fa_derivative,
+                fb_derivative,
+                fx_derivative,
+                objective_function(x),
+            ]
+        )
+
+        assert (
+            fa_derivative < 0 and fb_derivative > 0
+        ), "f'(a) must be less than 0 and f'(b) must be greater than 0"
 
         if fx_derivative > 0:
             max_pt = x
@@ -42,5 +56,5 @@ def bisection(
             break
 
         iter_count += 1
-    
+
     return True

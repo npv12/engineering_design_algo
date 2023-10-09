@@ -14,7 +14,7 @@ def golden_section(
     k=2,
     L=None,
 ) -> bool:
-    """ 
+    """
     Working ->
         1. Find the number of iterations required to find the minimum. If not specified, it will be 100.
         2. Find the length of the interval. This will stay the same throughout the iterations.
@@ -39,7 +39,7 @@ def golden_section(
     if k > iter:
         return True
 
-    lk = L/(GAMMA ** k)
+    lk = L / (GAMMA**k)
 
     if epsilon and lk < epsilon:
         if is_minimising:
