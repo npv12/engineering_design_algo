@@ -1,7 +1,7 @@
 import numpy as np
 
 from constants import objective_function, summary
-from utils import find_double_derivative, find_derivative, find_random_start
+from utils import find_derivative, find_double_derivative, find_random_start
 
 
 def newton_raphson(
