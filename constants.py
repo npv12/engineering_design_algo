@@ -1,9 +1,11 @@
-from math import sin
+from functools import lru_cache
 
 # Our objective function
+@lru_cache(None)
 def objective_function(x: float) -> float:
-    return (x - 15)**2 + 100 * sin(x)
+    return x ** 2 / 2 + 125 / x
 
+@lru_cache(None)
 def himmelblau_function(x: float, y: float) -> float:
     return (x**2 + y - 11)**2 + (x + y**2 - 7)**2
 
@@ -17,6 +19,7 @@ headers_dict = {
     "interval_halving": ["iteration", "min_pt", "max_pt", "x1", "mean_pt", "x2", "f(x1)", "f(xm)", "f(x2)"],
     "fibonacci_search": ["iteration", "min_pt", "max_pt", "lk", "x1", "x2", "f(x1)", "f(x2)", "k"],
     "golden_section_search": ["iteration", "min_pt", "max_pt", "L2", "x1", "x2", "f(x1)", "f(x2)"],
+    "newton_raphson": ["iteration", "x0", "f(x0)", "f'(x0)", "f''(x0)", "dx"],
 }
 
 GAMMA = 1.618 # Golder ratio

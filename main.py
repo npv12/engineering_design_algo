@@ -9,6 +9,7 @@ from algorithms.bounding_phase import bounding_phase
 from algorithms.exhaustive_search import exhaustive_search
 from algorithms.fibonacci_search import fibonnacci_seatch
 from algorithms.golden_section import golden_section
+from algorithms.newton_raphson import newton_raphson
 from algorithms.interval_halving import interval_halving
 from constants import headers_dict, summary
 
@@ -19,6 +20,7 @@ functions_dict = {
     "interval_halving": interval_halving,
     "fibonacci_search": fibonnacci_seatch,
     "golden_section_search": golden_section,
+    "newton_raphson": newton_raphson,
 }
 
 assert functions_dict.keys() == headers_dict.keys()  # Sanity check
