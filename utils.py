@@ -2,7 +2,6 @@ import random
 
 
 def find_derivative(f, x, h=0.01):
-    print(f(x + h), f(x), x, (f(x + h) - f(x)) / h)
     return (f(x + h) - f(x)) / h
 
 def find_double_derivative(f, x, h=0.01):

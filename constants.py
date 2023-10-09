@@ -20,6 +20,7 @@ headers_dict = {
     "fibonacci_search": ["iteration", "min_pt", "max_pt", "lk", "x1", "x2", "f(x1)", "f(x2)", "k"],
     "golden_section_search": ["iteration", "min_pt", "max_pt", "L2", "x1", "x2", "f(x1)", "f(x2)"],
     "newton_raphson": ["iteration", "x0", "f(x0)", "f'(x0)", "f''(x0)", "dx"],
+    "bisection": ["iteration", "min_pt", "max_pt", "x", "f'(a)", "f'(b)", "f'(x)", "f(x)"],
 }
 
 GAMMA = 1.618 # Golder ratio

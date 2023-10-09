@@ -1,8 +1,6 @@
-import random
-
 import numpy as np
 
-from constants import derivative, objective_function, summary, double_derivative
+from constants import objective_function, summary
 from utils import find_double_derivative, find_derivative, find_random_start
 
 def newton_raphson(
@@ -21,8 +19,6 @@ def newton_raphson(
         4. If |x1 - x0| < epsilon, then x1 is the solution
         5. Else, set x0 = x1 and go to step 2
     """
-    x0 = -1
-
     if not epsilon:
         raise ValueError("Must provide epsilon for newton raphson")
     

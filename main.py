@@ -5,6 +5,7 @@ import argparse
 import numpy as np
 from tabulate import tabulate
 
+from algorithms.bisection import bisection
 from algorithms.bounding_phase import bounding_phase
 from algorithms.exhaustive_search import exhaustive_search
 from algorithms.fibonacci_search import fibonnacci_seatch
@@ -21,6 +22,7 @@ functions_dict = {
     "fibonacci_search": fibonnacci_seatch,
     "golden_section_search": golden_section,
     "newton_raphson": newton_raphson,
+    "bisection": bisection,
 }
 
 assert functions_dict.keys() == headers_dict.keys()  # Sanity check
