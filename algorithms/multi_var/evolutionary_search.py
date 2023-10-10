@@ -53,7 +53,7 @@ def evolutionary_search(
     delta = np.array([2, 2])
     iter_count = 0
 
-    delta_mag = np.lina.norm(delta)
+    delta_mag = np.linalg.norm(delta)
     while delta_mag > epsilon and iter_count < iter:
         hcpts = hyper_cube_points(x0, delta)
         x1 = hcpts[np.argmin(hcpts[:, 2]), 0:2]
@@ -62,11 +62,10 @@ def evolutionary_search(
             [
                 iter_count,
                 np.round(hcpts[5, :], 2),
-                np.round(hcpts[0:], 2),
-                np.round(hcpts[0:], 2),
-                np.round(hcpts[1:], 2),
-                np.round(hcpts[2:], 2),
-                np.round(hcpts[3:], 2),
+                np.round(hcpts[0, :], 2),
+                np.round(hcpts[1, :], 2),
+                np.round(hcpts[2, :], 2),
+                np.round(hcpts[3, :], 2),
                 delta,
                 np.linalg.norm(delta),
             ]

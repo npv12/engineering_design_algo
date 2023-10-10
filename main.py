@@ -63,7 +63,7 @@ parser.add_argument(
     "--iter",
     type=int,
     help="Number of iteration to perform",
-    default=None,
+    default=100,
     required=False,
 )
 args = parser.parse_args()
@@ -74,6 +74,10 @@ if args.delta is None and args.epsilon is None and args.iter is None:
 functions_dict[args.optimisation_type](
     args.minpt, args.maxpt, args.delta, args.epsilon, args.iter, is_minimising=True
 )
+
+# Ensure that the summary is of the correct shape
+assert len(summary) > 0 and len(summary[0]) == len(headers_dict[args.optimisation_type])
+
 print(
     tabulate(
         np.array(summary), headers_dict[args.optimisation_type], tablefmt="fancy_grid"
