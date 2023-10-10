@@ -24,19 +24,9 @@ def hyper_cube_points(x: float, delta: float):
     return cubepoints
 
 
-# def hyper_cube_points(x: float, delta: float):
-#     cubepoints = np.zeros((6, 3))
-#     x0, x1 = x[0], x[1]
-#     d0, d1 = delta[0], delta[1]
-#     cubepoints[0:4, 0:2] = [[x0-d0/2, x1-d1/2], [x0+d0/2, x1-d1/2], [x0+d0/2, x1+d1/2], [x0-d0/2, x1+d1/2]]
-#     cubepoints[4:6, 0:2] = [[x0-d0/2, x1-d1/2], [x0, x1]]
-#     cubepoints[:, 2] = himmelblau_function(cubepoints[:, 0], cubepoints[:, 1])
-#     return cubepoints
-
-
 def evolutionary_search(
-    min_pt: float,
-    max_pt: float,
+    initial_x: float,
+    initial_y: float,
     delta: float | None = None,
     epsilon: float | None = None,
     iter: int | None = 100,
@@ -44,11 +34,17 @@ def evolutionary_search(
 ) -> bool:
     """
     Working ->
+        1. Choose initial point x0 and initial step size delta
+        2. Compute the function value at the corners of the hypercube
+        3. Find the minimum value of the function and the corresponding point
+        4. If the point is the same as the previous point, halve the step size
+        5. Else, set x0 to the new point and repeat from step 2
+        6. Terminates when the step size is less than epsilon or the number of iterations exceeds the maximum
     """
     if not epsilon:
-        raise ValueError("Must provide epsilon for newton raphson")
+        raise ValueError("Must provide epsilon for evolutionary search")
 
-    x0 = np.array([1, 1])
+    x0 = np.array([initial_x, initial_y])
 
     delta = np.array([2, 2])
     iter_count = 0
