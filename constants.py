@@ -7,8 +7,7 @@ def objective_function(x: float) -> float:
     return x**2 / 2 + 125 / x
 
 
-@lru_cache(None)
-def himmelblau_function(x: float, y: float) -> float:
+def himmelblau_function(x, y):
     return (x**2 + y - 11) ** 2 + (x + y**2 - 7) ** 2
 
 
@@ -70,6 +69,12 @@ headers_dict = {
         "h4",       
         "delta",
         "delta_mag",
+    ],
+    "simplex_search": [
+        "iteration",
+        "x0",
+        "x1",
+        "x2",
     ],
 }
 

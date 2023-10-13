@@ -6,6 +6,7 @@ import numpy as np
 from tabulate import tabulate
 
 from algorithms.multi_var.evolutionary_search import evolutionary_search
+from algorithms.multi_var.simplex_search import simplex_search
 from algorithms.single_var.bisection import bisection
 from algorithms.single_var.bounding_phase import bounding_phase
 from algorithms.single_var.exhaustive_search import exhaustive_search
@@ -25,6 +26,7 @@ functions_dict = {
     "newton_raphson": newton_raphson,
     "bisection": bisection,
     "evo_search": evolutionary_search,
+    "simplex_search": simplex_search,
 }
 
 assert functions_dict.keys() == headers_dict.keys()  # Sanity check
