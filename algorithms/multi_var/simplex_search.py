@@ -22,6 +22,14 @@ def add_to_summary(iteration, simplex):
     summary.append(summary_item)
 
 
+def generate_initial_simplex(min_pt, max_pt, epsilon, n = 3):
+    """
+    Randomly generate n points and return a nd array. 
+    """
+
+    return np.random.uniform(min_pt + epsilon, max_pt - epsilon, size=(n, 2))
+
+
 def simplex_search(
     min_pt: float,
     max_pt: float,
@@ -38,7 +46,7 @@ def simplex_search(
         raise ValueError("Must provide epsilon for evolutionary search")
 
     # Initial simplex
-    initial_simplex = np.array([[0.0, 0.0], [1.0, 0.0], [0.0, 1.0]])
+    initial_simplex = generate_initial_simplex(min_pt, max_pt, epsilon)
     n = len(initial_simplex[0])
     simplex = np.array(initial_simplex)
     add_to_summary(0, simplex)
